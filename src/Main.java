@@ -57,5 +57,20 @@ class Main{
             }
         }while (choice != '6');
     }
-    static void clientFunc(){}
+    static void clientFunc(){
+        Scanner input = new Scanner(System.in);
+        char choice ;
+        do {
+            System.out.println("1. Deposit");
+            System.out.println("2. Withdraw");
+            System.out.println("3. Transfer Credit");
+            System.out.println("4. Request Money");
+            System.out.println("5. Accept Request");
+            System.out.println("6. Show Transaction");
+            System.out.println("7. Show Request");
+            System.out.println("8. Undo Last Transaction");
+            System.out.println("9. Exit");
+            choice = input.next().charAt(0);
+        }while (choice != '9');
+    }
 }
