@@ -42,7 +42,6 @@ class Main{
                     nameD = input.next();
                     list.delete(nameD);
                     break;
-                    //comment
                 case '3':
                     String nameEdit;
                     String nameToSearch;
