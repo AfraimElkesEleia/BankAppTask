@@ -18,7 +18,7 @@ class Main{
                    clientFunc();
                    break;
            }
-       }while (choice != 3);
+       }while (choice != '3');
     }
     static void adminFunc(){
         Scanner input = new Scanner(System.in);
@@ -66,8 +66,10 @@ class Main{
         System.out.print("Enter your name to open your account : ");
         String clientName = input.next();
         client = list.findName(clientName);
-        if(client == null)
+        if(client == null) {
+            System.out.println("There no profile with this name");
             return;
+        }
         do {
             System.out.println("1. Deposit");
             System.out.println("2. Withdraw");
