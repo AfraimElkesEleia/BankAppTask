@@ -4,19 +4,21 @@ class Main{
    static LinkedList list = new LinkedList();
     public static void main(String[] args){
        Scanner input = new Scanner(System.in);
-        System.out.println("1. Log in as Admin");
-        System.out.println("2. Log in as Client");
-        char choice = input.next().charAt(0);
-        switch (choice){
-            case '1':
-                adminFunc();
-                break;
-            case '2' :
-                clientFunc();
-                break;
-            default:
-                System.out.println("Enter choice 1 or 2 ");
-        }
+        char choice;
+       do {
+           System.out.println("1. Log in as Admin");
+           System.out.println("2. Log in as Client");
+           System.out.println("3. Exit");
+            choice = input.next().charAt(0);
+           switch (choice) {
+               case '1':
+                   adminFunc();
+                   break;
+               case '2':
+                   clientFunc();
+                   break;
+           }
+       }while (choice != 3);
     }
     static void adminFunc(){
         Scanner input = new Scanner(System.in);
