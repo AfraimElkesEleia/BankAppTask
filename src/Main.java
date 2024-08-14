@@ -60,6 +60,12 @@ class Main{
     static void clientFunc(){
         Scanner input = new Scanner(System.in);
         char choice ;
+        Client client ;
+        System.out.print("Enter your name to open your account : ");
+        String clientName = input.next();
+        client = list.findName(clientName);
+        if(client == null)
+            return;
         do {
             System.out.println("1. Deposit");
             System.out.println("2. Withdraw");

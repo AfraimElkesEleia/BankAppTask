@@ -55,6 +55,19 @@ public class LinkedList {
         }
         current.client.name = editName;
     }
+    public Client findName(String name){
+        Node current = first;
+        while (!current.client.name.equalsIgnoreCase(name)){
+            if(current.next == null) {
+                System.out.println("Not found");
+                return null;
+            }
+            else {
+                current = current.next;
+            }
+        }
+        return current.client;
+    }
 
 
 }
