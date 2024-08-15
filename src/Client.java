@@ -14,14 +14,14 @@ public class Client {
     }
     public void deposit(double amount){
         balance += amount;
-        Transaction transaction = new Transaction("Deposit",amount,this.name);
+        Transaction transaction = new Transaction("Deposit",amount,this);
         transactions.insert(transaction);
         stackTransactions.push(transaction);
     }
     public void withdraw(double amount){
         if(balance>=amount){
             balance -=amount;
-            Transaction transaction = new Transaction("Withdraw",amount,this.name);
+            Transaction transaction = new Transaction("Withdraw",amount,this);
             transactions.insert(transaction);
             stackTransactions.push(transaction);
         }else {
@@ -32,7 +32,7 @@ public class Client {
         if(amount<=balance){
             this.balance -= amount;
             toClient.balance += amount;
-            Transaction transaction = new Transaction("Transfer",amount,this.name,toClient.name);
+            Transaction transaction = new Transaction("Transfer",amount,this,toClient);
             transactions.insert(transaction);
             stackTransactions.push(transaction);
         }
@@ -40,7 +40,24 @@ public class Client {
             System.out.println("You dont have enough money");
         }
     }
-
+    public void undoLastTransaction(){
+        Transaction transaction = stackTransactions.pop();
+        switch (transaction.type){
+            case "Deposit":
+                this.balance-= transaction.amount;
+                break;
+            case "Withdraw":
+                this.balance+= transaction.amount;
+                break;
+            case "Transfer":
+                Client recipient = transaction.toClient;
+                double amount = transaction.amount;
+                this.balance += amount;
+                recipient.balance -= amount;
+                break;
+        }
+        transactions.deleteLast();
+    }
     @Override
     public String toString() {
         return "Client{" +

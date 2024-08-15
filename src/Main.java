@@ -101,8 +101,20 @@ class Main{
                     amount = input.nextDouble();
                     client.withdraw(amount);
                     break;
+                case '3':
+                    System.out.print("Enter name of client to transfer : ");
+                    String nameOfClient = input.next();
+                    Client client2 = list.findName(nameOfClient);
+                    System.out.print("Enter amount ypu want to transfer : ");
+                    amount = input.nextDouble();
+                    client.transferCredit(client2,amount);
+                    break;
                 case '6':
                     client.transactions.displayList();
+                    break;
+                case '8':
+                    client.undoLastTransaction();
+                    System.out.println("Your balance in your account now is : "+ client.balance);
                     break;
                 case '9':
                     break;

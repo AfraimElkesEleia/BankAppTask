@@ -49,6 +49,7 @@ public class LinkedList {
         else
         previous.next = current.next;
     }
+
     public void editInfo(String name , String editName){
         Node current = first;
         while (!current.client.name.equalsIgnoreCase(name)){

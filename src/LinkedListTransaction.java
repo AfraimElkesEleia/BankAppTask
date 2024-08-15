@@ -23,5 +23,15 @@ public class LinkedListTransaction {
             current.next = newTransaction;
         }
     }
+    public void deleteLast(){
+        if(first==null)
+            return;
+        else {
+            NodeTransaction current = first;
+            while (current.next.next != null)
+                current = current.next;
+            current.next = null;
+        }
+    }
 
 }
