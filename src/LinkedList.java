@@ -63,6 +63,8 @@ public class LinkedList {
         current.client.name = editName;
     }
     public Client findName(String name){
+        if(first == null)
+            return null;
         Node current = first;
         while (!current.client.name.equalsIgnoreCase(name)){
             if(current.next == null) {

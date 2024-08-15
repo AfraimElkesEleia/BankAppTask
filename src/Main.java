@@ -101,6 +101,9 @@ class Main{
                     amount = input.nextDouble();
                     client.withdraw(amount);
                     break;
+                case '6':
+                    client.transactions.displayList();
+                    break;
                 case '9':
                     break;
                 default:
