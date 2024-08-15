@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 class Main{
-   static LinkedList list = new LinkedList();
+   static LinkedList list = new LinkedList(); //List to store clients
     public static void main(String[] args){
        Scanner input = new Scanner(System.in);
         char choice;
