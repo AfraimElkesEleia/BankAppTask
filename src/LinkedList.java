@@ -51,8 +51,10 @@ public class LinkedList {
     }
 
     public Client findName(String name){
-        if(first == null)
+        if(first == null) {
+            System.out.println("There is no clients");
             return null;
+        }
         Node current = first;
         while (!current.client.name.equalsIgnoreCase(name)){
             if(current.next == null) {
