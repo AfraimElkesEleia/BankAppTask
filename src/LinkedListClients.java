@@ -1,6 +1,6 @@
-public class LinkedList {
+public class LinkedListClients {
     private Node first;
-    public LinkedList(){
+    public LinkedListClients(){
         first = null;
     }
     public void displayList(){

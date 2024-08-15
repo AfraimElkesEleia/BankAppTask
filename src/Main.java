@@ -1,9 +1,13 @@
+import java.util.LinkedList;
 import java.util.Scanner;
 
 class Main{
-   static LinkedList list = new LinkedList(); //List to store clients
+   static LinkedListClients list = new LinkedListClients(); //List to store clients
+   static LinkedList<Admin> admins = new LinkedList<>();
     public static void main(String[] args){
        Scanner input = new Scanner(System.in);
+        admins.add(new Admin("Pavly","12345678"));
+        admins.add(new Admin("Marko","0892002"));
         char choice;
        do {
            System.out.println("1. Login as Admin");
@@ -22,6 +26,37 @@ class Main{
     }
     static void adminFunc(){
         Scanner input = new Scanner(System.in);
+        System.out.print("Enter your name : ");
+        String userName = input.next();
+        Admin admin = null;
+        for(int i = 0 ; i< admins.size();i++){
+            if(admins.get(i).getName().equalsIgnoreCase(userName)){
+                admin = admins.get(i);
+                break;
+            }
+        }
+        if(admin==null){
+            System.out.println("Error!!there is no admin with this name");
+            return;
+        }
+        System.out.print("Enter your Password : ");
+        int counter = 3;
+
+        do {
+            String userPassword = input.next();
+            if (userPassword.equals(admin.getPassword())){
+                System.out.println("Correct Password Enter numbers between 1 to 6 from this menu");
+                break;
+            }else {
+                counter--;
+                if(counter==0){
+                    System.out.println("Try Again!!");
+                    return;
+                }
+                System.out.println("Wrong Password!!..Please try again you have "+counter+" attempts");
+            }
+        }while (true);
+
         char choice ;
         do {
             System.out.println("1. Add Client");
