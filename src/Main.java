@@ -6,8 +6,8 @@ class Main{
        Scanner input = new Scanner(System.in);
         char choice;
        do {
-           System.out.println("1. Log in as Admin");
-           System.out.println("2. Log in as Client");
+           System.out.println("1. Login as Admin");
+           System.out.println("2. Login as Client");
            System.out.println("3. Exit");
             choice = input.next().charAt(0);
            switch (choice) {
