@@ -52,7 +52,12 @@ class Main{
                     nameToSearch = input.next();
                     System.out.print("Edit name : ");
                     nameEdit = input.next();
-                    list.editInfo(nameToSearch,nameEdit);
+                    Client client = list.findName(nameToSearch);
+                    if(client == null){
+                        System.out.println("There is no client with this name.");
+                        return;
+                    }
+                    client.name = nameEdit;
                     break;
                 case '4':
                     list.displayList();

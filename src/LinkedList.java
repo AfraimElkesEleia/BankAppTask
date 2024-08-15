@@ -50,19 +50,6 @@ public class LinkedList {
         previous.next = current.next;
     }
 
-    public void editInfo(String name , String editName){
-        Node current = first;
-        while (!current.client.name.equalsIgnoreCase(name)){
-            if(current.next == null) {
-                System.out.println("Not found");
-                return;
-            }
-            else {
-                current = current.next;
-            }
-        }
-        current.client.name = editName;
-    }
     public Client findName(String name){
         if(first == null)
             return null;
