@@ -55,9 +55,9 @@ class Main{
                     Client client = list.findName(nameToSearch);
                     if(client == null){
                         System.out.println("There is no client with this name.");
-                        return;
-                    }
+                    }else{
                     client.name = nameEdit;
+                    }
                     break;
                 case '4':
                     list.displayList();
