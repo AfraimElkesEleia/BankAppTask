@@ -11,6 +11,13 @@ public class LinkedList {
                 System.out.println();
             }
     }
+    public void showTransaction(){
+        Node current = first;
+        while (current != null){
+            current.client.transactions.displayList();
+            current = current.next;
+        }
+    }
     public void insert(Client client){
         Node newClient = new Node(client);
         if(first==null)

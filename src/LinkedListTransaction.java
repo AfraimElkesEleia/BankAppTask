@@ -12,15 +12,15 @@ public class LinkedListTransaction {
         }
     }
     public void insert(Transaction transaction){
-        NodeTransaction newClient = new NodeTransaction(transaction);
+        NodeTransaction newTransaction = new NodeTransaction(transaction);
         if(first==null)
-            first = newClient;
+            first = newTransaction;
         else {
             NodeTransaction current = first;
             while(current.next != null){
                 current = current.next;
             }
-            current.next = newClient;
+            current.next = newTransaction;
         }
     }
 

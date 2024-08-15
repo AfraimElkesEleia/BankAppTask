@@ -1,17 +1,18 @@
 public class Transaction {
     String type;
     double amount;
-    String formClient;
+    String fromClient;
     String toClient;
 
-    public Transaction(String type, double amount) { //Constructor for deposit and withdraw operation
+    public Transaction(String type, double amount,String fromClient) { //Constructor for deposit and withdraw operation
         this.type = type;
         this.amount = amount;
+        this.fromClient = fromClient;
     }
     public Transaction(String type, double amount, String formClient, String toClient) {
         this.type = type;
         this.amount = amount;
-        this.formClient = formClient;
+        this.fromClient = formClient;
         this.toClient = toClient;
     }
     
@@ -21,13 +22,15 @@ public class Transaction {
             return  "Transaction{" +
                     "type='" + type + '\'' +
                     ", amount=" + amount +
+                    ", from client='" + fromClient + '\'' +
                     '}';
         else
             return "Transaction{" +
                     "type='" + type + '\'' +
                     ", amount=" + amount +
-                    ", formClient='" + formClient + '\'' +
+                    ", formClient='" + fromClient + '\'' +
                     ", toClient='" + toClient + '\'' +
                     '}';
     }
+
 }

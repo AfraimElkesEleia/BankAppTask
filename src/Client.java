@@ -1,21 +1,32 @@
 public class Client {
     String name;
     double balance;
-    static int counter = 0;
     LinkedListTransaction transactions = new LinkedListTransaction();
 
     public Client(String name) {
         this.name = name;
         this.balance = 0;
-        counter++;
+    }
+    public void deposit(double amount){
+        balance += amount;
+        Transaction transaction = new Transaction("Deposit",amount,this.name);
+        transactions.insert(transaction);
+    }
+    public void withdraw(double amount){
+        if(balance>=amount){
+            balance -=amount;
+            Transaction transaction = new Transaction("Withdraw",amount,this.name);
+            transactions.insert(transaction);
+        }else {
+            System.out.println("You dont have enough money in your account");
+        }
     }
 
     @Override
     public String toString() {
         return "Client{" +
-                "name='" + name + '\'' +
-                ", balance=" + balance +
-                ", transactions=" + transactions.toString() +
+                "balance=" + balance +
+                ", name='" + name + '\'' +
                 '}';
     }
 }
