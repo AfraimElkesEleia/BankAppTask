@@ -58,6 +58,29 @@ public class Client {
         }
         transactions.deleteLast();
     }
+    public void acceptRequest(Request request){
+        if(requests.contains(request)) {
+            Client fromClient = request.fromClient ;
+            this.transferCredit(fromClient,request.amount);
+            requests.remove(request);
+        }else {
+            System.out.println("Not Found!!!");
+        }
+    }
+    public void makeRequest(Client toClient , double amount){
+        Request request = new Request(amount,this,toClient);
+        toClient.requests.add(request);
+    }
+    public void declinRequest(Request request){
+        if(requests.contains(request)){
+            requests.remove(request);
+        }else {
+            System.out.println("Not Found!!!");
+        }
+    }
+    public void showAllRequests(){
+            System.out.println(requests.iterator());
+    }
     @Override
     public String toString() {
         return "Client{" +

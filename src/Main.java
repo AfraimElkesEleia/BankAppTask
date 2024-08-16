@@ -7,7 +7,7 @@ class Main{
     public static void main(String[] args){
        Scanner input = new Scanner(System.in);
         admins.add(new Admin("Pavly","12345678"));
-        admins.add(new Admin("Marko","0892002"));
+        admins.add(new Admin("Marko","089200222"));
         char choice;
        do {
            System.out.println("1. Login as Admin");
@@ -119,6 +119,7 @@ class Main{
             return;
         }
         do {
+            System.out.println("Your current balance in your account is : "+client.balance);
             System.out.println("1. Deposit");
             System.out.println("2. Withdraw");
             System.out.println("3. Transfer Credit");
@@ -149,12 +150,22 @@ class Main{
                     amount = input.nextDouble();
                     client.transferCredit(client2,amount);
                     break;
+                case '4':
+                    System.out.println("Enter client name that you wnt to request from : ");
+                    String clientToSearch = input.next();
+                    Client toClient = list.findName(clientToSearch);
+                    if (toClient !=null){
+                        System.out.println("Enter amount you want to request : ");
+                        amount = input.nextDouble();
+                        client.makeRequest(toClient,amount);
+                    }else {
+                        System.out.println("Not found client with this name 😥!!");
+                    }
                 case '6':
                     client.transactions.displayList();
                     break;
                 case '8':
                     client.undoLastTransaction();
-                    System.out.println("Your balance in your account now is : "+ client.balance);
                     break;
                 case '9':
                     break;

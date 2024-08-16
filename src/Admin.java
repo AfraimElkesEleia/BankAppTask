@@ -6,8 +6,9 @@ private String password;
         this.name = name;
         if(password.length()>=8)
             this.password = password;
-        else
-            System.out.println("Enter password bigger than 8 characters");
+        else {
+            System.out.println("ERROR!!!Enter password bigger than 8 characters");
+        }
     }
 
     public String getName() {

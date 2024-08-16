@@ -14,7 +14,6 @@ public class Request {
         return "Request{" +
                 "amount=" + amount +
                 ", fromClient=" + fromClient.name +
-                ", toClient=" + toClient.name +
                 '}';
     }
 }
