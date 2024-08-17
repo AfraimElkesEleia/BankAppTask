@@ -164,7 +164,7 @@ class Main {
                 case '4':
                     System.out.print("Enter client name that you want to request from : ");
                     String clientToSearch = input.next();
-                    if (clientToSearch.equals(client.name)) {
+                    if (clientToSearch.equalsIgnoreCase(client.name)) {
                         System.out.println("That is not available !!!");
                         break;
                     }
