@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -40,14 +41,14 @@ public class Client {
             System.out.println("You dont have enough money");
         }
     }
-    public void undoLastTransaction(){
+    public void undoLastTransaction() {
         Transaction transaction = stackTransactions.pop();
-        switch (transaction.type){
+        switch (transaction.type) {
             case "Deposit":
-                this.balance-= transaction.amount;
+                this.balance -= transaction.amount;
                 break;
             case "Withdraw":
-                this.balance+= transaction.amount;
+                this.balance += transaction.amount;
                 break;
             case "Transfer":
                 Client recipient = transaction.toClient;
@@ -63,8 +64,9 @@ public class Client {
             Client fromClient = request.fromClient ;
             this.transferCredit(fromClient,request.amount);
             requests.remove(request);
+            System.out.println("Operation is done 🫡🫡");
         }else {
-            System.out.println("Not Found!!!");
+            System.out.println("Not Found!!!🥲🥲");
         }
     }
     public void makeRequest(Client toClient , double amount){
@@ -74,12 +76,23 @@ public class Client {
     public void declinRequest(Request request){
         if(requests.contains(request)){
             requests.remove(request);
+            System.out.println("Operation is done 🫡🫡");
         }else {
-            System.out.println("Not Found!!!");
+            System.out.println("Not Found!!!🥲🥲");
         }
     }
     public void showAllRequests(){
-            System.out.println(requests.iterator());
+        Iterator<Request> iterator = requests.iterator();
+
+        // Traverse the Queue and print elements
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+    public void showTransactions() {
+        for (int i = stackTransactions.size() - 1; i >= 0; i--) {
+            System.out.println(stackTransactions.get(i));
+        }
     }
     @Override
     public String toString() {

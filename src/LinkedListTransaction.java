@@ -26,6 +26,9 @@ public class LinkedListTransaction {
     public void deleteLast(){
         if(first==null)
             return;
+        else if (first.next == null){
+            first = null;
+        }
         else {
             NodeTransaction current = first;
             while (current.next.next != null)
