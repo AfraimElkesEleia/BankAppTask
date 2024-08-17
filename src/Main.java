@@ -149,7 +149,7 @@ class Main {
                 case '3':
                     System.out.print("Enter name of client to transfer : ");
                     String nameOfClient = input.next();
-                    if (nameOfClient.equals(client.name)) {
+                    if (nameOfClient.equalsIgnoreCase(client.name)) {
                         System.out.println("That is not available !!!");
                         break;
                     }
